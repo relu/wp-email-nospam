@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: WP NOSPAM
-Plugin URI:
-Description: Wordpress No Spam plugin
+Plugin Name: WP Email NOSPAM
+Plugin URI: https://github.com/relu
+Description: Prevents email address extraction from mailto: urls in your content
 Author: Aurel Canciu
 Version: 1.0
 Author URI: https://github.com/relu
@@ -32,7 +32,7 @@ add_filter('the_content', 'wpns_content_filter', 99);
 add_action('wp_enqueue_scripts', 'wpns_load_script');
 
 function wpns_content_filter($content) {
-	$content = preg_replace('/(?<=mailto:)(.+@)([-.\w\d]+)/i', "$1__NOSPAM__$2", $content);
+	$content = preg_replace('/(?<=mailto:)(.+)@([-.\w\d]+)/i', "$1_AT_NOSPAM_$2", $content);
 
 	return $content;
 }

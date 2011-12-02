@@ -1,5 +1,5 @@
 function wpns_replace(str) {
-	return str.replace(/__NOSPAM__/, '');
+	return str.replace(/_AT_NOSPAM_/, '@');
 }
 
 function wpns_parse_anchors() {
