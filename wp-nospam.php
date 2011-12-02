@@ -28,11 +28,20 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ?>
 <?php
 
+add_filter('the_content', 'wpns_content_filter');
+add_action('wp_enqueue_scripts', 'wpns_load_script');
+
 function wpns_content_filter($content) {
-	$content = preg_replace('/(?<=mailto:)(.+@)([-.\w\d]+)/i', "$1NOSPAM$2", $content);
+	$content = preg_replace('/(?<=mailto:)(.+@)([-.\w\d]+)/i', "$1__NOSPAM__$2", $content);
 
 	return $content;
 }
-add_filter('the_content', 'wpns_content_filter');
+
+function wpns_load_script() {
+	if (! is_admin()) {
+		wp_enqueue_script('wpns-js', plugins_url('wp-nospam.js', __FILE__), array(), '1.0', true);
+	}
+}
+
 
 ?>
