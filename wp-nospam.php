@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: WP Email NOSPAM
-Plugin URI: https://github.com/relu
-Description: Prevents email address extraction from mailto: urls in your content
+Plugin URI: https://github.com/relui/wp-email-nospam
+Description: Prevents email address extraction from "mailto:" links in your content, comments and text widgets
 Author: Aurel Canciu
 Version: 1.0
 Author URI: https://github.com/relu
