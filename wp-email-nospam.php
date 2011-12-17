@@ -55,7 +55,7 @@ function wpns_content_filter($content) {
  */
 function wpns_load_script() {
 	if (! is_admin()) {
-		wp_enqueue_script('wpns-js', plugins_url('wp-nospam.js', __FILE__), array(), '1.0', true);
+		wp_enqueue_script('wp-email-nospam', plugins_url('wp-email-nospam.js', __FILE__), array(), '1.0', true);
 	}
 }
 
